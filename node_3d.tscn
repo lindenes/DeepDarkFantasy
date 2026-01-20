@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpxkakwhfxk6y"]
+[gd_scene load_steps=3 format=3 uid="uid://bm14ntjhghdmm"]
+
+[ext_resource type="Script" uid="uid://cjm3olgvkr1mv" path="res://Camera3d.cs" id="1_a202f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
 
@@ -6,6 +8,7 @@
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.223917, 0)
+script = ExtResource("1_a202f")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.430948, -4.576598)

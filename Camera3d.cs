@@ -15,8 +15,16 @@ public partial class Camera3d : Camera3D
 	{
 		float MoveSpeed = 10f;
 		Vector3 direction = Vector3.Zero;
-		direction -= Transform.Basis.Z;
-		
+
+		if (Input.IsActionPressed("moveForward"))
+			direction -= Transform.Basis.Z;
+		if (Input.IsActionPressed("moveBackward"))
+			direction += Transform.Basis.Z;
+		if (Input.IsActionPressed("moveLeft"))
+			direction -= Transform.Basis.X;
+		if (Input.IsActionPressed("moveRight"))
+			direction += Transform.Basis.X;
+
 		if (direction.Length() > 0)
 		{
 			direction = direction.Normalized();

@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm14ntjhghdmm"]
+[gd_scene load_steps=6 format=3 uid="uid://bm14ntjhghdmm"]
 
 [ext_resource type="Script" uid="uid://cjm3olgvkr1mv" path="res://Camera3d.cs" id="1_a202f"]
+[ext_resource type="Script" uid="uid://rstu0k4ji4bc" path="res://DialogPanel.cs" id="2_a0tk4"]
+[ext_resource type="Texture2D" uid="uid://ckjs7rd6glh87" path="res://textures/DialogBackendTexture.png" id="2_noarx"]
+[ext_resource type="Script" uid="uid://cgr4645hojm81" path="res://lib/DialogText.cs" id="4_r3fl7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9970624, 0.07659727, 0, -0.07659727, 0.9970624, 0, 16.223917, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99706215, 0.07659726, 0, -0.07659726, 0.99706215, 0, 16.986666, 0)
 script = ExtResource("1_a202f")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
@@ -18,3 +21,37 @@ gravity_scale = 0.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24471092, 0)
 mesh = SubResource("BoxMesh_4xowi")
+
+[node name="DialogPanel" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0tk4")
+
+[node name="TextureRect" type="TextureRect" parent="DialogPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -228.0
+offset_right = -45.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_noarx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogPanel"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 438.0
+offset_right = 671.0
+offset_bottom = 483.0
+theme_override_font_sizes/normal_font_size = 31
+text = "Привет это тестовая панель диалогов"
+script = ExtResource("4_r3fl7")

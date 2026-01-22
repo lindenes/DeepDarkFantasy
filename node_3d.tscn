@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm14ntjhghdmm"]
+[gd_scene load_steps=4 format=3 uid="uid://bm14ntjhghdmm"]
 
 [ext_resource type="Script" uid="uid://cjm3olgvkr1mv" path="res://Camera3d.cs" id="1_a202f"]
-[ext_resource type="Script" uid="uid://rstu0k4ji4bc" path="res://DialogPanel.cs" id="2_a0tk4"]
 [ext_resource type="Texture2D" uid="uid://ckjs7rd6glh87" path="res://textures/DialogBackendTexture.png" id="2_noarx"]
-[ext_resource type="Script" uid="uid://cgr4645hojm81" path="res://lib/DialogText.cs" id="4_r3fl7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
 
@@ -25,33 +23,75 @@ mesh = SubResource("BoxMesh_4xowi")
 [node name="DialogPanel" type="Control" parent="."]
 visible = false
 layout_mode = 3
+anchor_left = 0.025173612
+anchor_top = 0.6759259
+anchor_right = 0.9717362
+anchor_bottom = 0.96717286
+offset_right = -0.44006348
+offset_bottom = 0.27197266
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="DialogPanel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_a0tk4")
-
-[node name="TextureRect" type="TextureRect" parent="DialogPanel"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -228.0
-offset_right = -45.0
-offset_bottom = -25.0
-grow_horizontal = 2
-grow_vertical = 0
 texture = ExtResource("2_noarx")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogPanel"]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 438.0
-offset_right = 671.0
-offset_bottom = 483.0
-theme_override_font_sizes/normal_font_size = 31
-text = "Привет это тестовая панель диалогов"
-script = ExtResource("4_r3fl7")
+[node name="BoxContainer" type="BoxContainer" parent="DialogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="SpeakerPanel" type="Control" parent="DialogPanel/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpeakerLabel" type="RichTextLabel" parent="DialogPanel/BoxContainer/SpeakerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0073394496
+anchor_top = 0.3260869
+anchor_right = 0.98623854
+anchor_bottom = 0.90217394
+offset_right = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeakerNameLabel" type="RichTextLabel" parent="DialogPanel/BoxContainer/SpeakerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0073394496
+anchor_top = 0.04347826
+anchor_right = 0.23633946
+anchor_bottom = 0.29356524
+offset_right = 0.38998413
+offset_bottom = -0.0080013275
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerPanel" type="Control" parent="DialogPanel/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DialogPanel/BoxContainer/PlayerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = -0.13978495
+anchor_right = 0.97300005
+anchor_bottom = 0.8709785
+offset_left = 0.3699999
+offset_top = 3.0
+offset_right = 0.42993164
+offset_bottom = -0.0009994507
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerResponses" type="VBoxContainer" parent="DialogPanel/BoxContainer/PlayerPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true

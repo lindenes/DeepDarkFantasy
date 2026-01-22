@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://iepn3lce71aa"
+path="res://.godot/imported/cameraDialog.dialogue-b5e606c5b0190644c92ac840f08316e1.tres"
+
+[deps]
+
+source_file="res://dialogue/cameraDialog.dialogue"
+dest_files=["res://.godot/imported/cameraDialog.dialogue-b5e606c5b0190644c92ac840f08316e1.tres"]
+
+[params]
+
+defaults=true
